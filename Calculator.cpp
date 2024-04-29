@@ -1,41 +1,188 @@
 #include "Calculator.h"
 #include "math.h"
-array<String^>^ Calculator::Calculate(double a, double b, double c)
+
+Calculator::Calculator(double a, double b, double c) {
+	this->a = a;
+	this->b = b;
+	this->c = c;
+	this->d = DiscriminantFinder();
+}
+
+
+double Calculator::DiscriminantFinder()
 {
-    array<String^>^ arr = gcnew array<String^>(3);
-    double Discriminant;
-    if (a != 0)
-    {
-        Discriminant = b * b - 4 * a * c;
-        if (Discriminant > 0)
-        {
-            arr[0] = Convert::ToString((-b + sqrt(Discriminant)) / (2 * a));
-            arr[1] = Convert::ToString((-b - sqrt(Discriminant)) / (2 * a));
-            arr[2] = "There are no errors";
+	double d;
+	d = pow(b, 2) - 4 * a * c;
+	return d;
+}
 
-            return arr;
-        }
-        else if (Discriminant == 0)
-        {
-            arr[0] = Convert::ToString((-b) / (2 * a));
-            arr[1] = " ";
-            arr[2] = "There are no errors";
 
-            return arr;
-        } 
-        else
-        {
-            arr[0] = "There are no roots";
-            arr[1] = "There are no roots";
-            arr[2] = "Discriminant < 0";
-            return arr;
-        }
-    }
-    else
-    {
-        arr[0] = Convert::ToString((-c) / b);
-        arr[1] = " ";
-        arr[2] = "There are no errors";
-        return arr;
-    }
+array<String^>^ Calculator::FirstType()
+{
+	array<String^>^ roots = gcnew array<String^>(2);
+	roots[0] = Convert::ToString(round(((-1 * b + sqrt(d)) / (2 * a)) * 10000) / 10000);
+	roots[1] = Convert::ToString(round(((-1 * b - sqrt(d)) / (2 * a)) * 10000) / 10000);
+	return roots;
+	delete roots;
+}
+
+
+array<String^>^ Calculator::SecondType()
+{
+	array<String^>^ roots = gcnew array<String^>(4);
+	roots[0] = Convert::ToString(round((-1 * b) / (2 * a) * 10000) / 10000);
+	roots[1] = "";
+	roots[2] = Convert::ToString(-1 * b) + "/" + Convert::ToString(2 * a);
+	roots[3] = "";
+	return roots;
+	delete roots;
+}
+
+array<String^>^ Calculator::ThirdType() {
+	array<String^>^ roots = gcnew array<String^>(4);
+	roots[0] = "Уравнение верно при любом x";
+	roots[1] = "";
+	roots[2] = "Уравнение верно при любом x";
+	roots[3] = "";
+	return roots;
+	delete roots;
+}
+
+array<String^>^ Calculator::FourthType() {
+	array<String^>^ roots = gcnew array<String^>(4);
+	roots[0] = "0";
+	roots[1] = "";
+	roots[2] = "0";
+	roots[3] = "";
+	return roots;
+	delete roots;
+
+}
+
+array<String^>^ Calculator::FifthType() {
+	array<String^>^ roots = gcnew array<String^>(4);
+	roots[0] = Convert::ToString(round(((-1 * c) / b) * 10000) / 10000);
+	roots[1] = "";
+	roots[2] = Convert::ToString(-1 * c) + "/" + Convert::ToString(b);
+	roots[3] = "";
+	return roots;
+	delete roots;
+}
+
+array<String^>^ Calculator::SixthType() {
+	array<String^>^ roots = gcnew array<String^>(4);
+	roots[0] = "Уравнение неверно";
+	roots[1] = "";
+	roots[2] = "";
+	roots[3] = "";
+	return roots;
+	delete roots;
+
+}
+
+
+
+array<String^>^ Calculator::Solve()
+{
+	array<String^>^ roots = gcnew array<String^>(4);
+
+	if (a != 0) {
+
+		if (d > 0) {
+			roots = FirstType();
+		}
+		if (d == 0) {
+			roots = SecondType();
+		}
+		if (d < 0) {
+			roots[0] = "Корней нет";
+			roots[1] = "Корней нет";
+			roots[2] = "Корней нет";
+			roots[3] = "Корней нет";
+		}
+
+		return roots;
+	}
+
+	if (a == 0 && b == 0 && c == 0) {
+		roots = ThirdType();
+		return roots;
+	}
+
+	if (a == 0 && b != 0 && c == 0) {
+		roots = FourthType();
+		return roots;
+	}
+
+	if (a == 0 && b != 0 && c != 0) {
+		roots = FifthType();
+		return roots;
+	}
+
+	if (a == 0 && b == 0 && c != 0) {
+		roots = SixthType();
+		return roots;
+	}
+	delete roots;
+}
+
+double Calculator::Function(double x)
+{
+	double y;
+	y = a * pow(x, 2) + b * x + c;
+	return y;
+}
+
+
+double Calculator::GetPeak()
+{
+	return ((-1 * b) / (2 * a));
+}
+
+array<String^>^ Calculator::SolveSelection(double precision, double border, int len) {
+
+	double Peak = GetPeak();
+	array<String^>^ roots = gcnew array<String^>(2);
+	if (d > 0 && a != 0) {
+		while (Peak <= border)
+		{
+			if ((Function(Peak) <= 0 && Function(Peak + precision) >= 0) || (Function(Peak) >= 0 && Function(Peak + precision) <= 0)) {
+				roots[1] = "[" + Convert::ToString(round(Peak * pow(10, len)) / pow(10, len)) + ";" + Convert::ToString(round((Peak + precision) * pow(10, len)) / pow(10, len)) + "]";
+				break;
+			}
+			else
+			{
+				Peak = Peak + precision;
+			}
+		}
+	}
+
+	Peak = GetPeak();
+	if (d > 0 && a != 0) {
+		while (Peak >= -1 * border)
+		{
+			if ((Function(Peak) <= 0 && Function(Peak - precision) >= 0) || (Function(Peak) >= 0 && Function(Peak - precision) <= 0)) {
+				roots[0] = "[" + Convert::ToString(round(Peak * pow(10, len)) / pow(10, len)) + ";" + Convert::ToString(round((Peak - precision) * pow(10, len)) / pow(10, len)) + "]";
+				break;
+			}
+			else
+			{
+				Peak = Peak - precision;
+			}
+
+		}
+	}
+
+	if (a == 0 && b == 0 && c == 0)
+	{
+		roots[0] = "[бесконечно";
+		roots[1] = " много решений]";
+	}
+	if (d < 0) {
+		roots[0] = "Нет ";
+		roots[1] = "корней";
+	}
+
+	return roots;
+	delete roots;
 }
