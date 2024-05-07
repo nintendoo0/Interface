@@ -125,11 +125,11 @@ namespace Interface {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series5 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series6 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->button_close = (gcnew System::Windows::Forms::Button());
 			this->result_label = (gcnew System::Windows::Forms::Label());
 			this->Minimum = (gcnew System::Windows::Forms::Button());
@@ -274,27 +274,27 @@ namespace Interface {
 			// 
 			// chart1
 			// 
-			chartArea2->Name = L"ChartArea1";
-			this->chart1->ChartAreas->Add(chartArea2);
-			legend2->Name = L"Legend1";
-			this->chart1->Legends->Add(legend2);
+			chartArea1->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea1);
+			legend1->Name = L"Legend1";
+			this->chart1->Legends->Add(legend1);
 			this->chart1->Location = System::Drawing::Point(298, 77);
 			this->chart1->Name = L"chart1";
-			series4->ChartArea = L"ChartArea1";
-			series4->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
-			series4->Legend = L"Legend1";
-			series4->Name = L"Series1";
-			series5->ChartArea = L"ChartArea1";
-			series5->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
-			series5->Legend = L"Legend1";
-			series5->Name = L"Series2";
-			series6->ChartArea = L"ChartArea1";
-			series6->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
-			series6->Legend = L"Legend1";
-			series6->Name = L"Series3";
-			this->chart1->Series->Add(series4);
-			this->chart1->Series->Add(series5);
-			this->chart1->Series->Add(series6);
+			series1->ChartArea = L"ChartArea1";
+			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series1->Legend = L"Legend1";
+			series1->Name = L"Series1";
+			series2->ChartArea = L"ChartArea1";
+			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series2->Legend = L"Legend1";
+			series2->Name = L"Series2";
+			series3->ChartArea = L"ChartArea1";
+			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series3->Legend = L"Legend1";
+			series3->Name = L"Series3";
+			this->chart1->Series->Add(series1);
+			this->chart1->Series->Add(series2);
+			this->chart1->Series->Add(series3);
 			this->chart1->Size = System::Drawing::Size(618, 395);
 			this->chart1->TabIndex = 32;
 			this->chart1->Text = L"chart1";
@@ -322,6 +322,7 @@ namespace Interface {
 			this->Terminal->Name = L"Terminal";
 			this->Terminal->Size = System::Drawing::Size(280, 129);
 			this->Terminal->TabIndex = 34;
+			this->Terminal->Click += gcnew System::EventHandler(this, &MyForm::Terminal_Click);
 			// 
 			// label5
 			// 
@@ -355,9 +356,9 @@ namespace Interface {
 			this->label7->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->label7->Location = System::Drawing::Point(21, 23);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(258, 29);
+			this->label7->Size = System::Drawing::Size(295, 29);
 			this->label7->TabIndex = 37;
-			this->label7->Text = L"Гафур Курсовушка <3";
+			this->label7->Text = L"Введите коэффициенты";
 			// 
 			// label8
 			// 
@@ -365,11 +366,11 @@ namespace Interface {
 			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->label8->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->label8->Location = System::Drawing::Point(434, 45);
+			this->label8->Location = System::Drawing::Point(528, 23);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(305, 29);
+			this->label8->Size = System::Drawing::Size(99, 29);
 			this->label8->TabIndex = 38;
-			this->label8->Text = L"Ну это график вы поняли";
+			this->label8->Text = L"График";
 			// 
 			// MyForm
 			// 
@@ -689,6 +690,8 @@ private: System::Void button21_Click(System::Object^ sender, System::EventArgs^ 
 private: System::Void button22_Click(System::Object^ sender, System::EventArgs^ e) {
 	HelpForm^ helpForm = gcnew HelpForm();
 	helpForm->ShowDialog();
+}
+private: System::Void Terminal_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 };

@@ -58,9 +58,9 @@ namespace Interface {
 			this->label1->AutoSize = true;
 			this->label1->Location = System::Drawing::Point(45, 36);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(427, 13);
+			this->label1->Size = System::Drawing::Size(172, 13);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"Эмм ну крч тут пишешь помощь просто расставляешь текст и картинки если надо";
+			this->label1->Text = L"Пока не придумал что написать ";
 			// 
 			// HelpForm
 			// 
