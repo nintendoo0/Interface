@@ -34,6 +34,9 @@ namespace Interface {
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::ToolTip^ toolTip1;
+	private: System::Windows::Forms::ToolTip^ toolTip2;
+	private: System::Windows::Forms::ToolTip^ toolTip3;
 
 	public: Point lastLocation;
 		   MyForm(void)
@@ -102,6 +105,7 @@ namespace Interface {
 
 
 	private: System::Windows::Forms::Button^ Minimum;
+	private: System::ComponentModel::IContainer^ components;
 
 	protected:
 
@@ -116,7 +120,7 @@ namespace Interface {
 		/// <summary>
 		/// Обязательная переменная конструктора.
 		/// </summary>
-		System::ComponentModel::Container^ components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -125,11 +129,12 @@ namespace Interface {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			this->components = (gcnew System::ComponentModel::Container());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea4 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series10 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series11 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series12 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->button_close = (gcnew System::Windows::Forms::Button());
 			this->result_label = (gcnew System::Windows::Forms::Label());
 			this->Minimum = (gcnew System::Windows::Forms::Button());
@@ -148,6 +153,9 @@ namespace Interface {
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->toolTip1 = (gcnew System::Windows::Forms::ToolTip(this->components));
+			this->toolTip2 = (gcnew System::Windows::Forms::ToolTip(this->components));
+			this->toolTip3 = (gcnew System::Windows::Forms::ToolTip(this->components));
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -163,6 +171,7 @@ namespace Interface {
 			this->button_close->Size = System::Drawing::Size(25, 25);
 			this->button_close->TabIndex = 0;
 			this->button_close->Text = L"X";
+			this->toolTip1->SetToolTip(this->button_close, L"Выход");
 			this->button_close->UseVisualStyleBackColor = true;
 			this->button_close->Click += gcnew System::EventHandler(this, &MyForm::button_close_Click);
 			// 
@@ -186,6 +195,7 @@ namespace Interface {
 			this->Minimum->Size = System::Drawing::Size(25, 25);
 			this->Minimum->TabIndex = 22;
 			this->Minimum->Text = L"__";
+			this->toolTip2->SetToolTip(this->Minimum, L"Свернуть");
 			this->Minimum->UseVisualStyleBackColor = true;
 			this->Minimum->Click += gcnew System::EventHandler(this, &MyForm::Minimum_Click);
 			// 
@@ -274,27 +284,27 @@ namespace Interface {
 			// 
 			// chart1
 			// 
-			chartArea1->Name = L"ChartArea1";
-			this->chart1->ChartAreas->Add(chartArea1);
-			legend1->Name = L"Legend1";
-			this->chart1->Legends->Add(legend1);
+			chartArea4->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea4);
+			legend4->Name = L"Legend1";
+			this->chart1->Legends->Add(legend4);
 			this->chart1->Location = System::Drawing::Point(298, 77);
 			this->chart1->Name = L"chart1";
-			series1->ChartArea = L"ChartArea1";
-			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
-			series1->Legend = L"Legend1";
-			series1->Name = L"Series1";
-			series2->ChartArea = L"ChartArea1";
-			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
-			series2->Legend = L"Legend1";
-			series2->Name = L"Series2";
-			series3->ChartArea = L"ChartArea1";
-			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
-			series3->Legend = L"Legend1";
-			series3->Name = L"Series3";
-			this->chart1->Series->Add(series1);
-			this->chart1->Series->Add(series2);
-			this->chart1->Series->Add(series3);
+			series10->ChartArea = L"ChartArea1";
+			series10->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series10->Legend = L"Legend1";
+			series10->Name = L"Series1";
+			series11->ChartArea = L"ChartArea1";
+			series11->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series11->Legend = L"Legend1";
+			series11->Name = L"Series2";
+			series12->ChartArea = L"ChartArea1";
+			series12->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series12->Legend = L"Legend1";
+			series12->Name = L"Series3";
+			this->chart1->Series->Add(series10);
+			this->chart1->Series->Add(series11);
+			this->chart1->Series->Add(series12);
 			this->chart1->Size = System::Drawing::Size(618, 395);
 			this->chart1->TabIndex = 32;
 			this->chart1->Text = L"chart1";
@@ -310,6 +320,7 @@ namespace Interface {
 			this->button22->Size = System::Drawing::Size(25, 25);
 			this->button22->TabIndex = 33;
 			this->button22->Text = L"\?";
+			this->toolTip3->SetToolTip(this->button22, L"Справка");
 			this->button22->UseVisualStyleBackColor = false;
 			this->button22->Click += gcnew System::EventHandler(this, &MyForm::button22_Click);
 			// 
