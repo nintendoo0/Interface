@@ -165,7 +165,7 @@ namespace Interface {
 			// button_close
 			// 
 			this->button_close->BackColor = System::Drawing::Color::Red;
-			this->button_close->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button_close->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->button_close->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->button_close->ForeColor = System::Drawing::Color::White;
