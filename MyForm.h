@@ -29,7 +29,7 @@ namespace Interface {
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart1;
 	private: System::Windows::Forms::Button^ button22;
-	private: System::Windows::Forms::Label^ Terminal;
+
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::Label^ label7;
@@ -37,6 +37,8 @@ namespace Interface {
 	private: System::Windows::Forms::ToolTip^ toolTip1;
 	private: System::Windows::Forms::ToolTip^ toolTip2;
 	private: System::Windows::Forms::ToolTip^ toolTip3;
+	private: System::Windows::Forms::Label^ label9;
+	private: System::Windows::Forms::ToolTip^ toolTip4;
 
 	public: Point lastLocation;
 		   MyForm(void)
@@ -130,11 +132,11 @@ namespace Interface {
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea4 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series10 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series11 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series12 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series7 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series8 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series9 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->button_close = (gcnew System::Windows::Forms::Button());
 			this->result_label = (gcnew System::Windows::Forms::Label());
 			this->Minimum = (gcnew System::Windows::Forms::Button());
@@ -148,7 +150,6 @@ namespace Interface {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->button22 = (gcnew System::Windows::Forms::Button());
-			this->Terminal = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
@@ -156,6 +157,8 @@ namespace Interface {
 			this->toolTip1 = (gcnew System::Windows::Forms::ToolTip(this->components));
 			this->toolTip2 = (gcnew System::Windows::Forms::ToolTip(this->components));
 			this->toolTip3 = (gcnew System::Windows::Forms::ToolTip(this->components));
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->toolTip4 = (gcnew System::Windows::Forms::ToolTip(this->components));
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -180,7 +183,7 @@ namespace Interface {
 			this->result_label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->result_label->ForeColor = System::Drawing::Color::White;
-			this->result_label->Location = System::Drawing::Point(54, 233);
+			this->result_label->Location = System::Drawing::Point(86, 280);
 			this->result_label->Name = L"result_label";
 			this->result_label->Size = System::Drawing::Size(206, 55);
 			this->result_label->TabIndex = 1;
@@ -201,7 +204,7 @@ namespace Interface {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(21, 129);
+			this->textBox1->Location = System::Drawing::Point(21, 197);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(100, 20);
 			this->textBox1->TabIndex = 23;
@@ -209,7 +212,7 @@ namespace Interface {
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(21, 103);
+			this->textBox2->Location = System::Drawing::Point(21, 161);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(100, 20);
 			this->textBox2->TabIndex = 24;
@@ -217,10 +220,11 @@ namespace Interface {
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(21, 77);
+			this->textBox3->Location = System::Drawing::Point(21, 125);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(100, 20);
 			this->textBox3->TabIndex = 25;
+			this->toolTip4->SetToolTip(this->textBox3, L"Введите коэффициент А");
 			this->textBox3->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::textBox3_KeyPress);
 			// 
 			// label2
@@ -228,7 +232,7 @@ namespace Interface {
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->label2->ForeColor = System::Drawing::Color::White;
-			this->label2->Location = System::Drawing::Point(136, 77);
+			this->label2->Location = System::Drawing::Point(127, 125);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(34, 20);
 			this->label2->TabIndex = 27;
@@ -240,7 +244,7 @@ namespace Interface {
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->label1->ForeColor = System::Drawing::Color::White;
-			this->label1->Location = System::Drawing::Point(136, 103);
+			this->label1->Location = System::Drawing::Point(127, 161);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(34, 20);
 			this->label1->TabIndex = 28;
@@ -252,7 +256,7 @@ namespace Interface {
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->label3->ForeColor = System::Drawing::Color::White;
-			this->label3->Location = System::Drawing::Point(136, 132);
+			this->label3->Location = System::Drawing::Point(127, 197);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(34, 20);
 			this->label3->TabIndex = 29;
@@ -263,7 +267,7 @@ namespace Interface {
 			// 
 			this->button21->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button21->Location = System::Drawing::Point(21, 188);
+			this->button21->Location = System::Drawing::Point(21, 235);
 			this->button21->Name = L"button21";
 			this->button21->Size = System::Drawing::Size(107, 42);
 			this->button21->TabIndex = 30;
@@ -276,7 +280,7 @@ namespace Interface {
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->label4->ForeColor = System::Drawing::Color::White;
-			this->label4->Location = System::Drawing::Point(58, 288);
+			this->label4->Location = System::Drawing::Point(90, 355);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(202, 55);
 			this->label4->TabIndex = 31;
@@ -284,27 +288,27 @@ namespace Interface {
 			// 
 			// chart1
 			// 
-			chartArea4->Name = L"ChartArea1";
-			this->chart1->ChartAreas->Add(chartArea4);
-			legend4->Name = L"Legend1";
-			this->chart1->Legends->Add(legend4);
-			this->chart1->Location = System::Drawing::Point(298, 77);
+			chartArea3->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea3);
+			legend3->Name = L"Legend1";
+			this->chart1->Legends->Add(legend3);
+			this->chart1->Location = System::Drawing::Point(298, 96);
 			this->chart1->Name = L"chart1";
-			series10->ChartArea = L"ChartArea1";
-			series10->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
-			series10->Legend = L"Legend1";
-			series10->Name = L"Series1";
-			series11->ChartArea = L"ChartArea1";
-			series11->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
-			series11->Legend = L"Legend1";
-			series11->Name = L"Series2";
-			series12->ChartArea = L"ChartArea1";
-			series12->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
-			series12->Legend = L"Legend1";
-			series12->Name = L"Series3";
-			this->chart1->Series->Add(series10);
-			this->chart1->Series->Add(series11);
-			this->chart1->Series->Add(series12);
+			series7->ChartArea = L"ChartArea1";
+			series7->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series7->Legend = L"Legend1";
+			series7->Name = L"Series1";
+			series8->ChartArea = L"ChartArea1";
+			series8->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series8->Legend = L"Legend1";
+			series8->Name = L"Series2";
+			series9->ChartArea = L"ChartArea1";
+			series9->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series9->Legend = L"Legend1";
+			series9->Name = L"Series3";
+			this->chart1->Series->Add(series7);
+			this->chart1->Series->Add(series8);
+			this->chart1->Series->Add(series9);
 			this->chart1->Size = System::Drawing::Size(618, 395);
 			this->chart1->TabIndex = 32;
 			this->chart1->Text = L"chart1";
@@ -324,23 +328,12 @@ namespace Interface {
 			this->button22->UseVisualStyleBackColor = false;
 			this->button22->Click += gcnew System::EventHandler(this, &MyForm::button22_Click);
 			// 
-			// Terminal
-			// 
-			this->Terminal->Font = (gcnew System::Drawing::Font(L"Times New Roman", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->Terminal->ForeColor = System::Drawing::Color::Red;
-			this->Terminal->Location = System::Drawing::Point(12, 362);
-			this->Terminal->Name = L"Terminal";
-			this->Terminal->Size = System::Drawing::Size(280, 129);
-			this->Terminal->TabIndex = 34;
-			this->Terminal->Click += gcnew System::EventHandler(this, &MyForm::Terminal_Click);
-			// 
 			// label5
 			// 
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->label5->ForeColor = System::Drawing::Color::White;
-			this->label5->Location = System::Drawing::Point(17, 233);
+			this->label5->Location = System::Drawing::Point(22, 280);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(35, 55);
 			this->label5->TabIndex = 35;
@@ -352,7 +345,7 @@ namespace Interface {
 			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->label6->ForeColor = System::Drawing::Color::White;
-			this->label6->Location = System::Drawing::Point(17, 288);
+			this->label6->Location = System::Drawing::Point(22, 355);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(35, 55);
 			this->label6->TabIndex = 36;
@@ -361,13 +354,12 @@ namespace Interface {
 			// 
 			// label7
 			// 
-			this->label7->AutoSize = true;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->label7->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->label7->Location = System::Drawing::Point(21, 23);
+			this->label7->Location = System::Drawing::Point(16, 64);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(295, 29);
+			this->label7->Size = System::Drawing::Size(276, 29);
 			this->label7->TabIndex = 37;
 			this->label7->Text = L"Введите коэффициенты";
 			// 
@@ -377,22 +369,34 @@ namespace Interface {
 			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->label8->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->label8->Location = System::Drawing::Point(528, 23);
+			this->label8->Location = System::Drawing::Point(545, 64);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(99, 29);
 			this->label8->TabIndex = 38;
 			this->label8->Text = L"График";
 			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label9->ForeColor = System::Drawing::Color::Orange;
+			this->label9->Location = System::Drawing::Point(13, 12);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(550, 29);
+			this->label9->TabIndex = 39;
+			this->label9->Text = L"Решатель квадратного уравнения с графиком";
+			// 
 			// MyForm
 			// 
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(69)), static_cast<System::Int32>(static_cast<System::Byte>(69)),
 				static_cast<System::Int32>(static_cast<System::Byte>(69)));
-			this->ClientSize = System::Drawing::Size(959, 509);
+			this->ClientSize = System::Drawing::Size(959, 523);
+			this->Controls->Add(this->label9);
 			this->Controls->Add(this->label8);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->label5);
-			this->Controls->Add(this->Terminal);
 			this->Controls->Add(this->button22);
 			this->Controls->Add(this->chart1);
 			this->Controls->Add(this->label4);
@@ -701,8 +705,6 @@ private: System::Void button21_Click(System::Object^ sender, System::EventArgs^ 
 private: System::Void button22_Click(System::Object^ sender, System::EventArgs^ e) {
 	HelpForm^ helpForm = gcnew HelpForm();
 	helpForm->ShowDialog();
-}
-private: System::Void Terminal_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 };
